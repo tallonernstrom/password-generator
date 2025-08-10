@@ -26,3 +26,15 @@ function generatePasswords() {
     password2El.textContent = password2
 }
 
+function copyPassword(id) {
+    const passwordText = document.getElementById(id).textContent;
+    if (passwordText) {
+        navigator.clipboard.writeText(passwordText)
+            .then(() => {
+                alert("Password copied!");
+            })
+            .catch(err => {
+                console.error("Failed to copy password: ", err);
+            });
+    }
+}
